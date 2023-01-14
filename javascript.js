@@ -53,8 +53,8 @@ function game(playerSelection) {
     {
         buttons.forEach(button => {
             button.disabled = true;
-            button.style.background = "aquamarine";
-            button.style.border = 0;
+            //button.style.background = "aquamarine";
+            //button.style.border = 0;
         });
         if(playerScore > computerScore)
             score.textContent = `You won! ${playerScore} : ${computerScore}`;
@@ -64,15 +64,28 @@ function game(playerSelection) {
     }
 }
 
+function reset() {
+    buttons.forEach(button => {
+        button.disabled = false;
+        //button.style.background = "aqua";
+        //button.style.border = "solid";
+    });    
+    playerScore = 0;
+    computerScore = 0;
+    score.textContent = `Your score ${playerScore} : ${computerScore} Computer score`;
+}
+
 let playerScore = 0;
 let computerScore = 0;
 
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('.gameBtn');
 buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        game(button.id);
-    })
+    button.addEventListener('click', () => { game(button.id) });
 });
+
+const resetBtn = document.querySelector('.reset');
+resetBtn.addEventListener('click', () => { reset() });
+
 const score = document.querySelector('.score');
 
 

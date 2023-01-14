@@ -15,12 +15,22 @@ body {
     align-items: center;
 }
 
-button {
+.gameBtn {
     width: 150px;
     height: 150px;
     padding-right: 155px;
     padding-bottom: 150px;
+    border-radius: 8px;
     background-color: aqua;
+    transition-duration: 0.4s;
+}
+
+.gameBtn:hover {
+    background-color: rgb(30, 220, 220);
+}
+
+.gameBtn:disabled {
+    background-color: rgb(30, 220, 220);
 }
 
 img {
