@@ -14,3 +14,16 @@ body {
     flex-direction: column;
     align-items: center;
 }
+
+button {
+    width: 150px;
+    height: 150px;
+    padding-right: 155px;
+    padding-bottom: 150px;
+    background-color: aqua;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+}

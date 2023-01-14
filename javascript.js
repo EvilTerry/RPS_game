@@ -53,11 +53,14 @@ function game(playerSelection) {
     {
         buttons.forEach(button => {
             button.disabled = true;
+            button.style.background = "aquamarine";
+            button.style.border = 0;
         });
         if(playerScore > computerScore)
             score.textContent = `You won! ${playerScore} : ${computerScore}`;
         else
             score.textContent = `You lost! ${playerScore} : ${computerScore}`;
+        
     }
 }
 
