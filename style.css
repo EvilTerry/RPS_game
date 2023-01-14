@@ -1,0 +1,13 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin : 0;
+    font-family: sans-serif;
+    background-color: grey;
+    height: 100vh;
+}
+
+.container {
+    background-color: aquamarine;
+}

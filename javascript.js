@@ -1,0 +1,64 @@
+            function computerPlay() {
+                let randomNumber = Math.floor(Math.random() * 3);
+
+                switch(randomNumber) {
+                    case 0: 
+                        return "rock";
+                    case 1:
+                        return "paper";
+                    case 2:
+                        return "scissors";
+                }
+            }
+
+            function playRound(playerSelection, computerSelection) {
+                switch(playerSelection.toLowerCase()) {
+                    case "rock":
+                        if(computerSelection === "rock")
+                            return 2;
+                        else if(computerSelection === "paper")
+                            return 1;
+                        else
+                            return 0;
+                    case "paper":
+                        if(computerSelection === "rock")
+                            return 0;
+                        else if(computerSelection === "paper")
+                            return 2;
+                        else
+                            return 1;
+                    case "scissors":
+                        if(computerSelection === "rock")
+                            return 1;
+                        else if(computerSelection === "paper")
+                            return 0
+                        else
+                            return 2;
+                }
+            }
+
+            function game() { 
+                let playerScore = 0;
+                let computerScore = 0;
+                for(let i = 0; i < 5; i++) {
+                    const playerSelection = prompt("Choose: Rock, Paper, Scissors");
+                    const computerSelection = computerPlay();
+                    switch(playRound(playerSelection, computerSelection)) {
+                        case 0:
+                            playerScore++;
+                            break;
+                        case 1:
+                            computerScore++;
+                            break;
+                    }
+                    console.log(i + 1 + ". Your score: " + playerScore + ", computer score: " + computerScore);
+                }
+                if(playerScore > computerScore)
+                    console.log("You Won!");
+                else if(playerScore < computerScore)
+                    console.log("You Lost!");
+                else
+                    console.log("It's a Draw!");
+            }
+
+//PLAYS GAME            game();
