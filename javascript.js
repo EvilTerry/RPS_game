@@ -1,17 +1,16 @@
-            function computerPlay() {
-                let randomNumber = Math.floor(Math.random() * 3);
+function computerPlay() {
+    let randomNumber = Math.floor(Math.random() * 3);
+        switch(randomNumber) {
+            case 0: 
+                   return "rock";
+             case 1:
+                return "paper";
+             case 2:
+                return "scissors";
+         }
+      }
 
-                switch(randomNumber) {
-                    case 0: 
-                        return "rock";
-                    case 1:
-                        return "paper";
-                    case 2:
-                        return "scissors";
-                }
-            }
-
-            function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection) {
                 switch(playerSelection.toLowerCase()) {
                     case "rock":
                         if(computerSelection === "rock")
@@ -37,28 +36,41 @@
                 }
             }
 
-            function game() { 
-                let playerScore = 0;
-                let computerScore = 0;
-                for(let i = 0; i < 5; i++) {
-                    const playerSelection = prompt("Choose: Rock, Paper, Scissors");
-                    const computerSelection = computerPlay();
-                    switch(playRound(playerSelection, computerSelection)) {
-                        case 0:
-                            playerScore++;
-                            break;
-                        case 1:
-                            computerScore++;
-                            break;
-                    }
-                    console.log(i + 1 + ". Your score: " + playerScore + ", computer score: " + computerScore);
-                }
-                if(playerScore > computerScore)
-                    console.log("You Won!");
-                else if(playerScore < computerScore)
-                    console.log("You Lost!");
-                else
-                    console.log("It's a Draw!");
-            }
+function game(playerSelection) { 
+    const computerSelection = computerPlay();
+    switch(playRound(playerSelection, computerSelection)) {
+        case 0:
+            playerScore++;
+            break;
+        case 1:
+            computerScore++;
+            break;
+    };
+    score.textContent = `Your score ${playerScore} : ${computerScore} Computer score`;
 
-//PLAYS GAME            game();
+
+    if(playerScore === 5 || computerScore === 5) //Disable button after 5 wins
+    {
+        buttons.forEach(button => {
+            button.disabled = true;
+        });
+        if(playerScore > computerScore)
+            score.textContent = `You won! ${playerScore} : ${computerScore}`;
+        else
+            score.textContent = `You lost! ${playerScore} : ${computerScore}`;
+    }
+}
+
+let playerScore = 0;
+let computerScore = 0;
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        game(button.id);
+    })
+});
+const score = document.querySelector('.score');
+
+
+
