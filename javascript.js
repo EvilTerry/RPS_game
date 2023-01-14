@@ -49,12 +49,10 @@ function game(playerSelection) {
     score.textContent = `Your score ${playerScore} : ${computerScore} Computer score`;
 
 
-    if(playerScore === 5 || computerScore === 5) //Disable button after 5 wins
+    if(playerScore === 5 || computerScore === 5)
     {
         buttons.forEach(button => {
             button.disabled = true;
-            //button.style.background = "aquamarine";
-            //button.style.border = 0;
         });
         if(playerScore > computerScore)
             score.textContent = `You won! ${playerScore} : ${computerScore}`;
@@ -67,8 +65,6 @@ function game(playerSelection) {
 function reset() {
     buttons.forEach(button => {
         button.disabled = false;
-        //button.style.background = "aqua";
-        //button.style.border = "solid";
     });    
     playerScore = 0;
     computerScore = 0;
