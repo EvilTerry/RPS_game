@@ -43,17 +43,21 @@ function game(playerSelection) {
             playerScore++;
             round.textContent = `You won! ${playerSelection} beats ${computerSelection}`;
             round.style.background = "green";
+            for(let i = 0; i < playerScore; i++)
+                playerScoreboard[i].style.background = "white";
             break;
         case 1:
             computerScore++;
             round.textContent = `You lost! ${playerSelection} loses to ${computerSelection}`;
             round.style.background = "red";
+            for(let i = 0; i < computerScore; i++)
+                computerScoreboard[i].style.background = "white";
             break;
         default:
             round.textContent = `It's a draw!`;
             round.style.background = "black";
     };
-    score.textContent = `Your score   ${playerScore} : ${computerScore} Computer score`;
+    score.textContent = `${playerScore} : ${computerScore}`;
 
 
     if(playerScore === 5 || computerScore === 5)
@@ -62,9 +66,9 @@ function game(playerSelection) {
             button.disabled = true;
         });
         if(playerScore > computerScore)
-            score.textContent = `You won! ${playerScore} : ${computerScore}`;
+            round.textContent = `You won!`;
         else
-            score.textContent = `You lost! ${playerScore} : ${computerScore}`;
+            round.textContent = `You lost!`;
         
     }
 }
@@ -75,9 +79,14 @@ function reset() {
     });    
     playerScore = 0;
     computerScore = 0;
-    score.textContent = `Your score ${playerScore} : ${computerScore} Computer score`;
+    score.textContent = `${playerScore} : ${computerScore}`;
     round.textContent = `Select your choice to play!`;
     round.style.background = "gray";
+    for(let i = 0; i < 5; i++)
+    {
+        computerScoreboard[i].style.background = "none";
+        playerScoreboard[i].style.background = "none";
+    }
 }
 
 let playerScore = 0;
@@ -93,6 +102,5 @@ resetBtn.addEventListener('click', () => { reset() });
 
 const score = document.querySelector('.score');
 const round = document.querySelector('.round');
-
-
-
+let playerScoreboard = document.getElementById('playerScore').children;
+let computerScoreboard = document.getElementById('computerScore').children;

@@ -16,6 +16,7 @@ body {
     padding: 10px;
     width: 700px;
     gap: 10px;
+    border-radius: 16px;
 }
 
 .reset {
@@ -71,11 +72,47 @@ body {
     padding-right: 4px;
 }
 
+.circles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    width: 680px;
+    padding-bottom: 20px;
+}
+
 .score {
     font-size: 48px;
 }
 
-img {
+.buttons img {
     width: 150px;
     height: 150px;
+}
+
+.images img {
+    width: 250px;
+    height: 250px;
+}
+
+.images {
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+}
+
+.circle {
+    border: solid;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+#playerScore, #computerScore{
+    display: flex;
+    gap: 15px;
+}
+
+#computerScore {
+    flex-direction: row-reverse;
 }
