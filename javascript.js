@@ -41,12 +41,19 @@ function game(playerSelection) {
     switch(playRound(playerSelection, computerSelection)) {
         case 0:
             playerScore++;
+            round.textContent = `You won! ${playerSelection} beats ${computerSelection}`;
+            round.style.background = "green";
             break;
         case 1:
             computerScore++;
+            round.textContent = `You lost! ${playerSelection} loses to ${computerSelection}`;
+            round.style.background = "red";
             break;
+        default:
+            round.textContent = `It's a draw!`;
+            round.style.background = "black";
     };
-    score.textContent = `Your score ${playerScore} : ${computerScore} Computer score`;
+    score.textContent = `Your score   ${playerScore} : ${computerScore} Computer score`;
 
 
     if(playerScore === 5 || computerScore === 5)
@@ -69,6 +76,8 @@ function reset() {
     playerScore = 0;
     computerScore = 0;
     score.textContent = `Your score ${playerScore} : ${computerScore} Computer score`;
+    round.textContent = `Press to play!`;
+    round.style.background = "gray";
 }
 
 let playerScore = 0;
@@ -83,6 +92,7 @@ const resetBtn = document.querySelector('.reset');
 resetBtn.addEventListener('click', () => { reset() });
 
 const score = document.querySelector('.score');
+const round = document.querySelector('.round');
 
 
 
