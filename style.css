@@ -18,6 +18,20 @@ body {
     gap: 10px;
 }
 
+.reset {
+    border : solid;
+    border-radius: 8px;
+    background-color: #845EC2;
+    font-size: 18px;
+    color: white;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.reset:hover {
+    transform: scale(1.05);
+}
+
 .buttons {
     display: flex;
     gap: 10px;
@@ -31,6 +45,7 @@ body {
     border-radius: 8px;
     background-color: #B39CD0;
     transition-duration: 0.4s;
+    cursor: pointer;
 }
 
 .gameBtn:hover {
@@ -40,6 +55,7 @@ body {
 
 .gameBtn:disabled {
     background-color: #9480ac;
+    
 }
 
 .gameBtn:active {

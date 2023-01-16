@@ -76,7 +76,7 @@ function reset() {
     playerScore = 0;
     computerScore = 0;
     score.textContent = `Your score ${playerScore} : ${computerScore} Computer score`;
-    round.textContent = `Press to play!`;
+    round.textContent = `Select your choice to play!`;
     round.style.background = "gray";
 }
 
